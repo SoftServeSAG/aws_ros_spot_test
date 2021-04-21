@@ -1,0 +1,71 @@
+{
+   "scenarios":{
+      "Scenario1":{
+         "simEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0",
+            "ROBOT_COVERAGE_TEST_COVERAGE_GOAL":"80"
+         },
+         "robotEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0"
+         }
+      },
+      "Scenario2":{
+         "simEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0",
+            "ROBOT_COVERAGE_TEST_COVERAGE_GOAL":"10"
+         },
+         "robotEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0"
+         }
+      }
+   },
+   "simulations":[
+      {
+         "scenarios":[
+            "Scenario1", 
+            "Scenario2"
+         ],
+         "params":{
+            "failureBehavior": "Fail",
+			   "maxJobDurationInSeconds": 600,
+            "simulationApplications":[
+               {
+                  "applicationVersion": "$LATEST",
+                  "launchConfig":{
+                     "launchFile":"coverage_test.launch",
+                     "packageName":"rs_tests"
+                  }
+               }
+            ],
+            "robotApplications":[
+               {
+                  "applicationVersion": "$LATEST",
+                  "launchConfig":{
+                     "launchFile":"coverage_test.launch",
+                     "packageName":"rs_robot_tests"
+                  }
+               }
+            ],
+            "vpcConfig": {
+				   "assignPublicIp": true
+            }
+         }
+      }
+   ]
+}

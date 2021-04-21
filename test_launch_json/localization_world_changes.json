@@ -1,0 +1,78 @@
+{
+   "scenarios":{
+      "Scenario1":{
+         "simEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_START_TIME_SECONDS":"5",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_MODE":"dynamic",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_OBJECTS_MANAGER_MODE":"delete",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_NAVIGATION_SUCCESS_COUNT":"5",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_OBJECTS_COUNT":"5"
+         },
+         "robotEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"0",
+            "START_Y":"0",
+            "START_Z":"0.0",
+            "START_YAW":"0"
+         }
+      },
+      "Scenario2":{
+         "simEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"5.4",
+            "START_Y":"-2.2",
+            "START_Z":"0.0",
+            "START_YAW":"1",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_START_TIME_SECONDS":"5",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_MODE":"dynamic",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_OBJECTS_MANAGER_MODE":"delete",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_NAVIGATION_SUCCESS_COUNT":"5",
+            "ROBOT_LOCALIZATION_WORLD_CHANGES_TEST_OBJECTS_COUNT":"5"
+         },
+         "robotEnvironmentVariables":{
+            "MODEL_NAME":"/",
+            "START_X":"5.4",
+            "START_Y":"-2.2",
+            "START_Z":"0.0",
+            "START_YAW":"1"
+         }
+      }
+   },
+   "simulations":[
+      {
+         "scenarios":[
+            "Scenario1"
+         ],
+         "params":{
+            "failureBehavior": "Fail",
+			   "maxJobDurationInSeconds": 600,
+            "simulationApplications":[
+               {
+                  "applicationVersion": "$LATEST",
+                  "launchConfig":{
+                     "launchFile":"localization_world_changes_test.launch",
+                     "packageName":"rs_tests"
+                  }
+               }
+            ],
+            "robotApplications":[
+               {
+                  "applicationVersion": "$LATEST",
+                  "launchConfig":{
+                     "launchFile":"localization_world_changes_test.launch",
+                     "packageName":"rs_robot_tests"
+                  }
+               }
+            ],
+            "vpcConfig": {
+				   "assignPublicIp": true
+            }
+         }
+      }
+   ]
+}
